@@ -3,14 +3,14 @@ import {
   Route
 } from 'react-router-dom'
 
-import steps from './steps';
+import steps from '../components/Steps';
 
 const makeQNA = (name) => ({ history, match }) => {
   const qna = steps.find(step => step.name === name);
 
   const handler = (e) => {
-    console.log(e);
-    history.push(`${match.path}/${e}`)
+    const route = qna.answers.find(a => a.value === e).route;
+    history.push(`${match.path}/${route}`)
   }
 
   return (
@@ -26,11 +26,9 @@ const makeQNA = (name) => ({ history, match }) => {
       }
       {
         qna.answers.map((answer, index) => {
-          console.log(`${match.path}/${answer.value}`);
-          console.log(answer);
           return (<Route 
             key={index} 
-            path={`${match.path}/${answer.value}`} 
+            path={`${match.path}/${answer.route}`}
             component={answer.next} 
             />)
         }

@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 
-import {
-  BrowserRouter as Router,
-  Route,
-} from 'react-router-dom'
+import {BrowserRouter as Router, Route,} from 'react-router-dom'
 
-import {HowAreYou} from './all';
+import configureStore from '../states/store';
 
-import configureStore from './store';
+import {HowAreYou} from './Steps';
 
 class App extends Component {
   render() {
@@ -25,6 +21,4 @@ class App extends Component {
   }
 }
 
-const app = document.querySelector('#app');
-
-ReactDOM.render(<App />, app);
+export default App;

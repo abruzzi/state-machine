@@ -4,9 +4,13 @@ import makeQNA from '../utils/qna';
 import Good from './Good';
 import NotBad from './NotBad'
 
-import qnas from './qnas.json';
+import qnas from '../qnas.json';
 
-const Local = () => <h2>Local</h2>
+const Local = () => (<div>
+  <h2>Local</h2>
+  <img src="https://media.giphy.com/media/VvHjhoD5WDyVy/giphy.gif" alt=""/>
+</div>)
+
 const Oversea = () => <h2>Oversea</h2>
 const Secret = () => <h2>Secret</h2>
 

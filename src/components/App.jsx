@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route,} from 'react-router-dom'
 
 import configureStore from '../states/store';
 
-import {HowAreYou} from './Steps';
+import {EnhancedHowAreYou} from './Steps';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
       <Provider store={configureStore()}>
         <Router>
           <div style={{width: 1000, margin: '0 auto'}}>
-            <Route path='/qna' component={HowAreYou} />
+            <Route path='/qna' component={EnhancedHowAreYou} />
           </div>
         </Router>
       </Provider>

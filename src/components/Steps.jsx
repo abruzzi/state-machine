@@ -1,7 +1,6 @@
 import React from 'react';
-import makeQNA from '../utils/qna';
+import makeQNA, {makeSimple} from '../utils/qna';
 
-import Good from './Good';
 import NotBad from './NotBad'
 
 import qnas from '../qnas.json';
@@ -17,6 +16,8 @@ const Secret = () => <h2>Secret</h2>
 const HowAreYou = makeQNA('howareyou');
 const Address = makeQNA('address');
 
+const Good = makeSimple('good');
+
 const routeToCompMap = {
   local: Local,
   oversea: Oversea,
@@ -27,7 +28,7 @@ const routeToCompMap = {
 }
 
 const assemble = (qnas, routeToCompMap) => {
-  return qnas.map(qna => {
+  return qnas.filter(qna => qna.type === 'switch').map(qna => {
     const answers = qna.answers.map(answer => ({
       ...answer, next: routeToCompMap[answer.route]
     }));
@@ -40,4 +41,8 @@ const steps = assemble(qnas, routeToCompMap);
 
 export default steps;
 
-export {HowAreYou};
+const EnhancedHowAreYou = ({history, match}) => (<div>
+  <h1>Enhanced How Are You</h1>
+  <HowAreYou history={history} match={match} />
+</div>)
+export {EnhancedHowAreYou};

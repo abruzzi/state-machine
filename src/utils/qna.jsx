@@ -4,6 +4,18 @@ import {
 } from 'react-router-dom'
 
 import steps from '../components/Steps';
+import qnas from '../qnas.json';
+
+const makeSimple = (name) => ({ history, match }) => {
+  const qna = qnas.find(qna => qna.name === name);
+
+  return (<div>
+    <p>Simple Content</p>
+    {qna.content}
+  </div>)
+}
+
+export {makeSimple}
 
 const makeQNA = (name) => ({ history, match }) => {
   const qna = steps.find(step => step.name === name);

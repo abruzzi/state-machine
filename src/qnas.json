@@ -1,6 +1,7 @@
 [
   {
     "name": "address",
+    "type": "switch",
     "question": "Where do you live?",
     "answers": [
       {
@@ -22,6 +23,7 @@
   },
   {
     "name": "howareyou",
+    "type": "switch",
     "question": "How are you?",
     "answers": [
       {
@@ -40,5 +42,10 @@
         "route": "address"
       }
     ]
+  },
+  {
+    "name": "good",
+    "type": "simple",
+    "content": "hello world"
   }
 ]
